@@ -1,4 +1,436 @@
-html {
-  height: 100%;
-  width: 100%;
+html,
+body {
+  height: auto;
+  display: block;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: hsl(0, 0%, 98%);
 }
+
+/* Font import  */
+@font-face {
+  font-family: 'DMSans';
+  src: url('./fonts/DMSans-Regular.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DMSans';
+  src: url('./fonts/DMSans-Medium.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DMSans';
+  src: url('./fonts/DMSans-MediumItalic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+:root {
+  --purple-100: hsl(254, 88%, 90%);
+  --purple-500: hsl(256, 67%, 59%);
+  --yellow-100: hsl(31, 66%, 93%);
+  --yellow-500: hsl(39, 100%, 71%);
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 7%);
+
+  /* Font */
+  --font-family: 'DMSans';
+  --font-size-body: 18px;
+
+  /* Weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+}
+
+/* Global styles */
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  font-weight: var(--weight-regular);
+  color: var(--black);
+  margin: 0;
+  padding: 2rem;
+}
+
+/* Container default - mobile first */
+.container {
+  width: 100%;
+  padding: 1rem;
+  min-height: 700px;
+  display: grid;
+  gap: 2rem;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "a"
+    "b"
+    "d"
+    "e"
+    "f"
+    "g"
+    "h"
+    "i";
+}
+
+/* Card styles */
+.item {
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  font-weight: var(--weight-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile specific image adjustments */
+.item4 img {
+  width: 160%;
+  transform: translateX(5%);
+}
+
+.item6 img {
+  width: 140%;
+  transform: translateX(5%);
+}
+
+.item7 img {
+  width: 90%;
+  transform: translateY(60%);
+}
+
+/* Mobile layout for item15 */
+.item15 {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  height: auto;
+}
+
+.item15 p {
+  margin-top: -0.05rem;
+  margin-bottom: -0.35rem;
+  font-size: 1.75rem;
+  max-width: 90%;
+  text-align: left;
+  line-height: 0.9;
+  margin-left: 1rem;
+}
+
+.item15 img {
+  max-width: 90%;
+  height: auto;
+  display: block;
+}
+
+/* Typography helpers */
+.italic { font-style: italic; }
+.purple { color: var(--purple-500); }
+.yellow { color: var(--yellow-500); }
+
+/* Image styles */
+.item img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+/* grid-area: a (item 1) styles */
+.item1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  gap: 1rem;
+}
+
+.item1 p {
+  font-size: 2.5rem;
+  align-self: flex-start;
+  margin-left: 1rem;
+  max-width: 90%;
+  text-align: left;
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+  margin-bottom: 0.5rem;
+}
+
+.item1 img {
+  align-self: center;
+  max-width: 90%;
+  height: auto;
+  display: block;
+}
+
+/* grid-area: b (item 2) styles */
+.item2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.text-top2 {
+  font-size: 4rem;
+  text-align: center;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.text-bottom2 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 0.15rem;
+}
+
+/* grid-area: d (item 4) styles */
+.item4 {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1.5rem 1rem;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+.text-top4 {
+  font-size: 2rem;
+  text-align: left;
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  align-self: center;
+  margin-left: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.text-bottom4 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-align: left;
+  align-self: center;
+  margin-left: 1.25rem;
+  margin-bottom: -1rem;
+}
+
+.item4 img {
+  width: 160%;
+  height: auto;
+  object-fit: cover;
+  object-position: left center;
+  display: block;
+  max-width: none;
+  transform: translateX(5%);
+  margin-bottom: -0.75rem;
+}
+
+/* grid-area: e (item 6) styles */
+.item6 {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start;
+  padding: 1.5rem 1rem;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+.item6 p {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: left;
+  align-self: center;
+  margin-left: 1.25rem;
+  line-height: 1;
+  margin-bottom: 0.15rem;
+}
+
+.item6 img {
+  width: 140%;
+  height: auto;
+  object-fit: cover;
+  object-position: left center;
+  display: block;
+  max-width: none;
+  transform: translateX(5%);
+  margin-bottom: -1rem;
+}
+
+/* grid-area: f (item 7) styles */
+.item7 {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start;
+  padding: 1.5rem 1rem;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+.item7 p {
+  font-size: 1.75rem;
+  font-weight: 500;
+  text-align: left;
+  align-self: center;
+  margin-left: 1rem;
+  line-height: 1;
+  margin-top: -0.15rem;
+  margin-bottom: -4rem;
+}
+
+.item7 img {
+  width: 90%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  max-width: none;
+  transform: translateY(60%);
+}
+
+/* grid-area: g (item 9) styles */
+.item9 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  gap: 1rem;
+}
+
+.item9 p {
+  font-size: 2.5rem;
+  align-self: flex-start;
+  margin-left: 1rem;
+  max-width: 90%;
+  text-align: left;
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.item9 img {
+  align-self: center;
+  max-width: 90%;
+  height: auto;
+  display: block;
+}
+
+/* grid-area: h (item 14) styles */
+.item14 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.text-top14 {
+  font-size: 3.75rem;
+  align-self: flex-start;
+  margin-left: 1rem;
+  max-width: 90%;
+  text-align: left;
+  letter-spacing: -0.15rem;
+  margin-top: -1rem;
+  margin-bottom: -0.5rem;
+}
+
+.text-bottom14 {
+  font-size: 1.1rem;
+  align-self: flex-start;
+  margin-left: 1rem;
+  max-width: 90%;
+  text-align: left;
+  line-height: 0.9;
+  margin-bottom: 3rem;
+}
+
+.item14 img {
+  align-self: left;
+  margin-left: 1rem;
+  max-width: 80%;
+  height: auto;
+  display: block;
+}
+
+/* Desktop: 4 columns with min width, fixed grid positions */
+@media (min-width: 769px) {
+  .container {
+    max-width: 1200px;
+    padding: 1rem;
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    grid-template-rows: minmax(250px, auto) minmax(100px, auto) minmax(100px, auto) minmax(200px, auto);
+    grid-auto-flow: row;
+    grid-template-areas:
+      "a b b d"
+      "a e f d"
+      "g e f d"
+      "g h i i";
+  }
+  
+  .item15 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    gap: 1rem;
+    }
+
+  .item15 p {
+    margin-left: 1rem;
+    max-width: 90%;
+    text-align: left;
+    line-height: 0.9;
+    font-size: 2rem;
+    }
+
+  .item15 img {
+    align-self: left;
+    max-width: 45%;
+    height: auto;
+    display: block;
+    margin-left: 0.75rem;
+    }
+}
+
+.item1 { grid-area: a; background: var(--yellow-100); }
+.item2 { grid-area: b; background: var(--purple-500); color: var(--white); }
+.item4 { grid-area: d; background: var(--purple-100); }
+.item6 { grid-area: e; background: var(--white); aspect-ratio: 1 / 1; }
+.item7 { grid-area: f; background: var(--yellow-500); aspect-ratio: 1 / 1; }
+.item9 { grid-area: g; background: var(--yellow-500); }
+.item14 { grid-area: h; background: var(--white); aspect-ratio: 1 / 1; }
+.item15 { grid-area: i; background: var(--purple-500); color: var(--white); }
